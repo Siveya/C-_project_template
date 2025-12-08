@@ -5,10 +5,13 @@
 
 int main()
 {
-    std::cout << "Template Library Version: " << Template::Version::string << "\n\n";
+    std::cout << "Template Library Version: " << VERSION << std::endl;
+    std::cout << "Version Major: " << VERSION_MAJOR << std::endl;
+    std::cout << "Version Minor: " << VERSION_MINOR << std::endl;
+    std::cout << "Version Patch: " << VERSION_PATCH << std::endl;
 
     // 使用 module1
-    std::cout << "Testing Module 1:\n";
+    std::cout << "\nTesting Module 1:\n";
     module1::greet("World");
 
     // 使用 module2

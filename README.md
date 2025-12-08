@@ -26,18 +26,17 @@
 
 ## 项目结构
 ```shell
-cpp_project_template/
+VSCode_Cpp_Configuration/
 ├── .vscode/                    # VS Code 配置
 │   ├── c_cpp_properties.json   # C/C++ 配置
 │   ├── launch.json            # 调试配置
 │   ├── settings.json          # 编辑器设置
 │   └── tasks.json             # 任务配置
 ├── include/                    # 公共头文件
-│   ├── module1/           # 模块1的公共头文件
-│   ├── module2/           # 模块2的公共头文件
-│   ├── version.hpp        # 版本信息
-│   ├── export.hpp         # 导出宏定义
-│   └── pch.hpp            # 预编译头文件
+│   ├── module1/             # 模块1的公共头文件
+│   ├── module2/             # 模块2的公共头文件
+│   ├── export.h             # 导出宏定义
+│   └── version.h.in         # 版本信息模板
 ├── src/                       # 源代码
 │   ├── module1/              # 模块1实现
 │   ├── module2/              # 模块2实现
@@ -55,11 +54,11 @@ cpp_project_template/
 ├── examples/                 # 示例代码
 │   ├── basic_usage.cpp      # 基本用法示例
 │   └── CMakeLists.txt       # 示例构建配置
-├── build/                      # 构建输出目录
+├── build/                    # 构建输出目录
 ├── docs/                    # 文档
-├── scripts/                 # 工具脚本
-├── third_party/            # 第三方依赖
-│   ├── googletest/         # Google Test 源码 用于单元测试
+├── scripts/                  # 工具脚本
+├── third_party/              # 第三方依赖
+│   ├── googletest/           # Google Test 源码 用于单元测试
 │   └── library2/
 ├── CMakeLists.txt         # 主构建文件
 ├── .clang-format          # 代码格式化配置
@@ -80,8 +79,8 @@ cpp_project_template/
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/yourusername/cpp_project_template.git
-cd cpp_project_template
+git clone https://github.com/Siveya/VSCode_Cpp_Configuration.git
+cd VSCode_Cpp_Configuration
 git submodule update --init --recursive
 
 # 2. 使用构建脚本
@@ -99,8 +98,8 @@ chmod +x scripts/build.sh
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/yourusername/cpp_project_template.git
-cd cpp_project_template
+git clone https://github.com/Siveya/VSCode_Cpp_Configuration.git
+cd VSCode_Cpp_Configuration
 git submodule update --init --recursive
 
 # 2. 配置和构建

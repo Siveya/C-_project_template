@@ -3,9 +3,15 @@ cmake_minimum_required(VERSION 3.12)
 
 # 设置项目名称和版本
 project(Template
-    VERSION 1.0.0
-    DESCRIPTION "A modern C++ project template"
+    VERSION 1.0.1
+    DESCRIPTION "An example of a modern C++ project"
     LANGUAGES CXX)
+
+# 生成头文件 version.h
+configure_file(
+    ${CMAKE_SOURCE_DIR}/include/version.h.in
+    ${CMAKE_BINARY_DIR}/include/version.h
+)
 
 # 指定 C++ 标准
 set(CMAKE_CXX_STANDARD 17)
@@ -40,16 +46,16 @@ endif()
 # 添加子目录
 add_subdirectory(src)
 
+target_include_directories(${PROJECT_NAME}
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/include>  # 构建时用
+        $<INSTALL_INTERFACE:include>                   # 安装后用
+)
+
 # 创建可执行文件
 add_executable(${PROJECT_NAME}_exe src/main.cpp)
 target_link_libraries(${PROJECT_NAME}_exe PRIVATE ${PROJECT_NAME})
 set_target_properties(${PROJECT_NAME}_exe PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
-
-# 预编译头文件
-target_precompile_headers(${PROJECT_NAME}
-    PUBLIC
-        include/pch.h
-)
 
 if(TEMPLATE_BUILD_TESTS)
     enable_testing()
